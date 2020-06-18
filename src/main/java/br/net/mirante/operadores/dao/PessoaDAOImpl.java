@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.net.mirante.operadores.entity.Pessoa;
 
-public class PessoaDAOHibernateImpl implements PessoaDAO {
+public class PessoaDAOImpl implements PessoaDAO {
 	
 private EntityManager entityManager;
 	
 	@Autowired
-	public PessoaDAOHibernateImpl(EntityManager entityManager) {		
+	public PessoaDAOImpl(EntityManager entityManager) {		
 		this.entityManager = entityManager;
 	}
 

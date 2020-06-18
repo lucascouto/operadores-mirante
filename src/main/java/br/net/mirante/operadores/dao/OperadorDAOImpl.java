@@ -12,12 +12,12 @@ import org.hibernate.*;
 import br.net.mirante.operadores.entity.Operador;
 
 @Repository
-public class OperadorDAOHibernateImpl implements OperadorDAO {
+public class OperadorDAOImpl implements OperadorDAO {
 	
 	private EntityManager entityManager;
 	
 	@Autowired
-	public OperadorDAOHibernateImpl(EntityManager entityManager) {		
+	public OperadorDAOImpl(EntityManager entityManager) {		
 		this.entityManager = entityManager;
 	}
 

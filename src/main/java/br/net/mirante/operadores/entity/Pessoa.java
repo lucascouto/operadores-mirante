@@ -1,11 +1,15 @@
 package br.net.mirante.operadores.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "pessoa")
@@ -36,6 +40,10 @@ public class Pessoa {
 	
 	@Column(name = "tipo_pessoa")
 	private char tipoPessoa;
+	
+	@OneToMany(mappedBy = "pessoa",
+			cascade = { CascadeType.ALL })
+	private List<Telefone> telefones;
 	
 	public Pessoa() {
 		
@@ -121,6 +129,24 @@ public class Pessoa {
 		return "Pessoa [id=" + id + ", nome=" + nome + ", documento=" + documento + ", dataNascimento=" + dataNascimento
 				+ ", nomePai=" + nomePai + ", nomeMae=" + nomeMae + ", loginOperador=" + loginOperador + ", tipoPessoa="
 				+ tipoPessoa + "]";
+	}
+
+	public List<Telefone> getTelefones() {
+		return telefones;
+	}
+
+	public void setTelefones(List<Telefone> telefones) {
+		this.telefones = telefones;
+	}
+	
+	//Metodos para o relacionamento bi-direcional entre Pessoa e Telefone
+	public void adicionarTelefone(Telefone telefone) {
+		if(this.telefones == null) {
+			this.telefones = new ArrayList<>();
+		}
+		
+		this.telefones.add(telefone);
+		telefone.setPessoa(this);
 	}
 	
 }
