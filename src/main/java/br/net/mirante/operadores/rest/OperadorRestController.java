@@ -7,23 +7,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import br.net.mirante.operadores.dao.OperadorDAO;
 import br.net.mirante.operadores.entity.Operador;
+import br.net.mirante.operadores.service.OperadorService;
 
 @RestController
 @RequestMapping("/api")
 public class OperadorRestController {
 	
-	private OperadorDAO operadorDAO;
+	private OperadorService operadorService;
 	
 	@Autowired
-	public OperadorRestController(OperadorDAO operadorDAO) {
-		this.operadorDAO = operadorDAO;
+	public OperadorRestController(OperadorService operadorService) {
+		this.operadorService = operadorService;
 	}
 	
 	@GetMapping("/operadores")
 	public List<Operador> lista() {
-		return operadorDAO.listarOperadores();
+		return operadorService.listarOperadores();
 	}
 	
 

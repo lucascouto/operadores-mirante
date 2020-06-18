@@ -10,7 +10,7 @@ import br.net.mirante.operadores.dao.OperadorDAO;
 import br.net.mirante.operadores.entity.Operador;
 
 @Service
-public class OperadorServiceImpl implements OperadorDAO {
+public class OperadorServiceImpl implements OperadorService {
 	
 	private OperadorDAO operadorDAO;
 	
