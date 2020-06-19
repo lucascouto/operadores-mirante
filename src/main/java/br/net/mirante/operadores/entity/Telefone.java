@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.GenerationType;
 
 @Entity
@@ -19,6 +22,9 @@ public class Telefone {
 	@Column(name = "id")
 	private int id;
 	
+	@Column(name = "ddd")
+	private String ddd;
+	
 	@Column(name = "numero")
 	private String numero;
 	
@@ -28,16 +34,18 @@ public class Telefone {
 	@Column(name = "login_operador")
 	private String loginOperador;
 	
+	@JsonIgnore
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, 
 						  CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinColumn(name = "pessoa_id")
+	@JoinColumn(name = "id_pessoa")	
 	private Pessoa pessoa;
 	
 	public Telefone() {
 		
 	}
-
-	public Telefone(String numero, String tipo, String loginOperador) {
+	
+	public Telefone(String ddd, String numero, String tipo, String loginOperador) {
+		this.ddd = ddd;
 		this.numero = numero;
 		this.tipo = tipo;
 		this.loginOperador = loginOperador;
@@ -49,6 +57,14 @@ public class Telefone {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getDdd() {
+		return ddd;
+	}
+
+	public void setDdd(String ddd) {
+		this.ddd = ddd;
 	}
 
 	public String getNumero() {

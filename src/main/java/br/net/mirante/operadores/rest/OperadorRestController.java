@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 import br.net.mirante.operadores.entity.Operador;
-import br.net.mirante.operadores.service.OperadorService;
+import br.net.mirante.operadores.service.IOperadorService;
 
 @RestController
 @RequestMapping("/api")
 public class OperadorRestController {
 	
-	private OperadorService operadorService;
+	private IOperadorService operadorService;
 	
 	@Autowired
-	public OperadorRestController(OperadorService operadorService) {
+	public OperadorRestController(IOperadorService operadorService) {
 		this.operadorService = operadorService;
 	}
 	
