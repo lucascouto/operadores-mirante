@@ -1,4 +1,4 @@
-# operadores-mirante
+# Sistema de RH
 
 Resolução do desafio enviado pela Mirante Tecnologia
 
