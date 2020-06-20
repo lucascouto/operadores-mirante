@@ -1,5 +1,7 @@
 package br.net.mirante.operadores.entity;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,14 +27,18 @@ public class Operador {
 	@Column(name = "senha")
 	private String senha;
 	
+	@Column(name = "created_at")
+	private Timestamp createdAt;
+	
 	public Operador() {
 		
 	}
 
-	public Operador(String nome, String login, String senha) {
+	public Operador(String nome, String login, String senha, Timestamp createdAt) {
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
+		this.createdAt = createdAt;
 	}
 
 	public int getId() {
@@ -65,6 +71,14 @@ public class Operador {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public Timestamp getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	@Override

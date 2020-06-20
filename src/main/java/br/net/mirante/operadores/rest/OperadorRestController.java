@@ -1,6 +1,7 @@
 package br.net.mirante.operadores.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import br.net.mirante.operadores.entity.Operador;
 import br.net.mirante.operadores.service.IOperadorService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class OperadorRestController {
 	

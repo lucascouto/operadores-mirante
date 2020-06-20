@@ -1,5 +1,6 @@
 package br.net.mirante.operadores.dao;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -40,6 +41,7 @@ public class OperadorDAO implements IOperadorDAO {
 	@Override
 	public void cadastrarOperador(Operador operador) {
 		Session sessaoAtual = entityManager.unwrap(Session.class);
+		operador.setCreatedAt(new Timestamp(System.currentTimeMillis()));
 		sessaoAtual.saveOrUpdate(operador);
 		
 	}
