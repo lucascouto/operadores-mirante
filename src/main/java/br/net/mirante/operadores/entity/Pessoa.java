@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -44,7 +43,6 @@ public class Pessoa {
 	@Column(name = "tipo_pessoa")
 	private char tipoPessoa;
 	
-	@JsonIgnore
 	@OneToMany(mappedBy = "pessoa",
 			cascade = { CascadeType.ALL })
 	private List<Telefone> telefones;
