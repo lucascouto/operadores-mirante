@@ -1,6 +1,7 @@
 package br.net.mirante.operadores.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import br.net.mirante.operadores.entity.Pessoa;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class PessoaRestController {
 	
@@ -56,13 +58,13 @@ public class PessoaRestController {
 	}
 	
 	@DeleteMapping("/pessoas/{id}")
-	public String deletarPessoa(@PathVariable int id) {
+	public Pessoa deletarPessoa(@PathVariable int id) {
 		Pessoa pessoa = pessoaService.buscarPessoa(id);	
 		if(pessoa == null) {
 			throw new RuntimeException("Não foi encontrado essa pessoa - " + id);
 		}	
 		pessoaService.deletarPessoa(id);
 		
-		return "Pessoa deletada. Id - " + id;
+		return pessoa;
 	}
 }

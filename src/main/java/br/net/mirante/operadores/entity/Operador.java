@@ -30,15 +30,19 @@ public class Operador {
 	@Column(name = "created_at")
 	private Timestamp createdAt;
 	
+	@Column(name = "updated_at")
+	private Timestamp updatedAt;
+	
 	public Operador() {
 		
 	}
 
-	public Operador(String nome, String login, String senha, Timestamp createdAt) {
+	public Operador(String nome, String login, String senha, Timestamp createdAt, Timestamp updatedAt) {
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
 		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
 
 	public int getId() {
@@ -79,6 +83,14 @@ public class Operador {
 
 	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
+	}
+
+	public Timestamp getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Timestamp updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
 	@Override

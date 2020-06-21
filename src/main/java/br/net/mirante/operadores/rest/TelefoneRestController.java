@@ -1,5 +1,6 @@
 package br.net.mirante.operadores.rest;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import br.net.mirante.operadores.entity.Telefone;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class TelefoneRestController {
 	
@@ -42,13 +44,13 @@ public class TelefoneRestController {
 	}
 	
 	@DeleteMapping("/telefones/{id}")
-	public String deletarTelefone(@PathVariable int id) {
+	public Telefone deletarTelefone(@PathVariable int id) {
 		Telefone telefone = telefoneService.obterTelefone(id);
 		if(telefone == null) {
 			throw new RuntimeException("Telefone não encontrado - " + id);
 		}
 		telefoneService.deletarTelefone(id);
 		
-		return "Telefone deletado. Id - " + id;
+		return telefone;
 	}
 }
