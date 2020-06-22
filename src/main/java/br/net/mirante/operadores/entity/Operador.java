@@ -27,6 +27,9 @@ public class Operador {
 	@Column(name = "senha")
 	private String senha;
 	
+	@Column(name = "role")
+	private String role;
+	
 	@Column(name = "created_at")
 	private Timestamp createdAt;
 	
@@ -37,12 +40,13 @@ public class Operador {
 		
 	}
 
-	public Operador(String nome, String login, String senha, Timestamp createdAt, Timestamp updatedAt) {
+	public Operador(String nome, String login, String senha, Timestamp createdAt, Timestamp updatedAt, String role) {
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+		this.role = role;
 	}
 
 	public int getId() {
@@ -91,6 +95,14 @@ public class Operador {
 
 	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override

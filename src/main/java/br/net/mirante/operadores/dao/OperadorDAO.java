@@ -3,6 +3,7 @@ package br.net.mirante.operadores.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -50,5 +51,15 @@ public class OperadorDAO implements IOperadorDAO {
 		sessaoAtual.createQuery("delete from Operador where id =:operadorId")
 			.setParameter("operadorId", id)
 			.executeUpdate();
+	}
+
+	@Override
+	@Transactional
+	public Operador buscarPorLogin(String login) {
+		Session sessaoAtual = entityManager.unwrap(Session.class);
+		Operador operador = sessaoAtual.createQuery("from Operador where login =:login", Operador.class)
+			.setParameter("login", login)
+			.getSingleResult();
+		return operador;
 	}
 }
