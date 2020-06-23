@@ -42,7 +42,7 @@ CREATE TABLE `operador` (
 
 LOCK TABLES `operador` WRITE;
 /*!40000 ALTER TABLE `operador` DISABLE KEYS */;
-INSERT INTO `operador` VALUES (3,'Administrador','admin','admin','ADMIN','2020-06-22 01:05:52','2020-06-22 19:58:14');
+INSERT INTO `operador` (`nome`, `login`, `senha`, `role`) VALUES ('Administrador','admin','admin','ROLE_ADMIN');
 /*!40000 ALTER TABLE `operador` ENABLE KEYS */;
 UNLOCK TABLES;
 
