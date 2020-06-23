@@ -109,4 +109,9 @@ public class OperadorRestController {
 		
 	}
 	
+	@GetMapping("/operadorlogado/{login}")
+	public Operador buscarPorLogin(@PathVariable String login) {
+		return operadorService.buscarPorLogin(login);
+	}
+	
 }

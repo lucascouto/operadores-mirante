@@ -44,4 +44,9 @@ public class OperadorService implements IOperadorService {
 
 	}
 
+	@Override
+	public Operador buscarPorLogin(String login) {
+		return operadorDAO.buscarPorLogin(login);
+	}
+
 }

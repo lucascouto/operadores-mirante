@@ -31,7 +31,7 @@ public class MyUserDetails implements UserDetails{
 	}
 
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
+	public Collection<? extends GrantedAuthority> getAuthorities() {	
 		// TODO Auto-generated method stub
 		return authorities;
 	}
